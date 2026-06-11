@@ -1,9 +1,13 @@
 import type { Lang } from "@/lib/i18n";
+// 1. Import your flag images (adjust paths to match your assets folder)
+import arFlag from "@/assets/flags/ar.png";
+import enFlag from "@/assets/flags/en.png";
+import frFlag from "@/assets/flags/fr.png";
 
 const LANGS: { code: Lang; label: string; flag: string }[] = [
-  { code: "ar", label: "العربية", flag: "\uD83C\uDDF8\uD83C\uDDE6" }, // 🇸🇦
-  { code: "en", label: "English", flag: "\uD83C\uDDEC\uD83C\uDDE7" },  // 🇬🇧
-  { code: "fr", label: "Français", flag: "\uD83C\uDDEB\uD83C\uDDF7" }   // 🇫🇷
+  { code: "ar", label: "العربية", flag: arFlag },
+  { code: "en", label: "English", flag: enFlag },
+  { code: "fr", label: "Français", flag: frFlag }
 ];
 
 export function LangSwitcher({
@@ -26,7 +30,8 @@ export function LangSwitcher({
               : "text-foreground/70 hover:text-foreground"
           }`}
         >
-          <span className="text-base leading-none">{l.flag}</span>
+          {/* 3. Render as an image instead of a span */}
+          <img src={l.flag} alt={l.label} className="w-5 h-5 object-cover rounded-full" />
           {l.code.toUpperCase()}
         </button>
       ))}
