@@ -164,26 +164,28 @@ export function ChatInterface({ lang, onHome }: { lang: Lang; onHome: () => void
         <img src={mofLogo} alt="" className="w-[80%] h-[80%] object-contain" />
       </div>
 
-      {/* Header Elements */}
-      <div className="sticky top-0 z-30 shrink-0 border-b border-white/40 bg-white/60 backdrop-blur-xl" style={{ paddingTop: "env(safe-area-inset-top)" }}>
-        <div className="max-w-4xl mx-auto px-4 md:px-6 h-16 md:h-20 flex items-center justify-between gap-3">
-          <button
-            onClick={onHome}
-            className="group relative h-11 w-11 rounded-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 shadow-soft hover:shadow-glow overflow-hidden"
-            style={{ background: "linear-gradient(135deg, hsl(var(--etimad-light-green)), hsl(var(--etimad-dark-green)))" }}
-            aria-label="Home"
-          >
-            <span className="absolute inset-0 bg-white/0 group-hover:bg-white/10 transition" />
-            <House size={20} className="text-white relative z-10 group-hover:-translate-y-0.5 transition-transform" strokeWidth={2.4} />
-          </button>
-          <div className="flex items-center gap-2">
-            <img src={mofLogo} alt="Etimad" className="h-9 object-contain" />
-          </div>
-          <div className="h-10 w-10 rounded-xl overflow-hidden ring-2 ring-white shadow-soft">
-            <img src={tawreedLogo} alt="Tawreed" className="w-full h-full object-contain" />
-          </div>
-        </div>
-      </div>
+     {/* Header Elements */}
+<div className="sticky top-0 z-30 shrink-0 border-b border-white/40 bg-white/60 backdrop-blur-xl" style={{ paddingTop: "env(safe-area-inset-top)" }}>
+  <div className="max-w-4xl mx-auto px-4 md:px-6 h-16 md:h-20 flex items-center justify-between gap-3">
+    <button
+      onClick={onHome}
+      // UPDATED: High-contrast border and background for visibility
+      className="group relative h-11 w-11 rounded-2xl flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95 border-2 border-[#0B8E5B] bg-white shadow-soft"
+      aria-label="Home"
+    >
+      {/* Icon color changed to primary green for better legibility */}
+      <House size={20} className="text-[#0B8E5B] relative z-10 transition-transform" strokeWidth={2.5} />
+    </button>
+    
+    <div className="flex items-center gap-2">
+      <img src={mofLogo} alt="Etimad" className="h-9 object-contain" />
+    </div>
+    
+    <div className="h-10 w-10 rounded-xl overflow-hidden ring-2 ring-white shadow-soft">
+      <img src={tawreedLogo} alt="Tawreed" className="w-full h-full object-contain" />
+    </div>
+  </div>
+</div>
 
       {/* Message Feed Viewport */}
       <div className="relative z-10 flex-1 overflow-y-auto" style={{ paddingTop: 16, paddingBottom: 32 }}>
