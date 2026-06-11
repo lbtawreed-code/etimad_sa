@@ -5,7 +5,7 @@ import enFlag from "@/assets/flag-uk.png";
 import frFlag from "@/assets/flag-fr.png";
 
 // Change your imports to this:
-const LANGS: { code: Lang; label: string; flag: string }[] = [
+const LANGS = [
   { code: "ar", label: "العربية", flag: "/flag-sa.png" },
   { code: "en", label: "English", flag: "/flag-uk.png" },
   { code: "fr", label: "Français", flag: "/flag-fr.png" }
