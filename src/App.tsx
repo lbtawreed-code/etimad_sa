@@ -57,7 +57,7 @@ const App = () => {
         {showInstall && (
           <button
             onClick={installApp}
-            className="fixed bottom-5 right-5 z-[9999] flex items-center gap-2 rounded-full bg-[#0F4C8B] px-5 py-3 text-sm font-bold text-white shadow-lg active:scale-95"
+            className="fixed bottom-5 right-5 z-[9999] flex items-center gap-2 rounded-full gradient-primary px-5 py-3 text-sm font-bold text-primary-foreground shadow-glow active:scale-95 transition-all hover:opacity-90"
           >
             <Download size={18} />
             Download App
