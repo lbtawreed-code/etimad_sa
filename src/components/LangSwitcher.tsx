@@ -1,8 +1,8 @@
 import type { Lang } from "@/lib/i18n";
 // 1. Import your flag images (adjust paths to match your assets folder)
-import arFlag from "@/assets/flags/ar.png";
-import enFlag from "@/assets/flags/en.png";
-import frFlag from "@/assets/flags/fr.png";
+import arFlag from "@/assets/flag-sa.png";
+import enFlag from "@/assets/flag-uk.png";
+import frFlag from "@/assets/flag-fr.png";
 
 const LANGS: { code: Lang; label: string; flag: string }[] = [
   { code: "ar", label: "العربية", flag: arFlag },
