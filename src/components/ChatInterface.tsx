@@ -164,17 +164,17 @@ export function ChatInterface({ lang, onHome }: { lang: Lang; onHome: () => void
         <img src={mofLogo} alt="" className="w-[80%] h-[80%] object-contain" />
       </div>
 
-     {/* Header Elements */}
-<div className="sticky top-0 z-30 shrink-0 border-b border-white/40 bg-white/60 backdrop-blur-xl" style={{ paddingTop: "env(safe-area-inset-top)" }}>
+    {/* Header Elements */}
+<div className="sticky top-0 z-50 shrink-0 border-b border-white/40 bg-white/60 backdrop-blur-xl" style={{ paddingTop: "env(safe-area-inset-top)" }}>
   <div className="max-w-4xl mx-auto px-4 md:px-6 h-16 md:h-20 flex items-center justify-between gap-3">
     <button
       onClick={onHome}
-      // UPDATED: High-contrast border and background for visibility
-      className="group relative h-11 w-11 rounded-2xl flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95 border-2 border-[#0B8E5B] bg-white shadow-soft"
+      // Added z-50, forced bg-white, and a clear border for visibility
+      className="group relative h-11 w-11 rounded-2xl flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95 border-2 border-[#0B8E5B] bg-white shadow-soft z-50"
       aria-label="Home"
     >
-      {/* Icon color changed to primary green for better legibility */}
-      <House size={20} className="text-[#0B8E5B] relative z-10 transition-transform" strokeWidth={2.5} />
+      {/* Icon color set explicitly to match your green theme */}
+      <House size={20} className="text-[#0B8E5B]" strokeWidth={2.5} />
     </button>
     
     <div className="flex items-center gap-2">
