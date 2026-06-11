@@ -4,10 +4,11 @@ import arFlag from "@/assets/flag-sa.png";
 import enFlag from "@/assets/flag-uk.png";
 import frFlag from "@/assets/flag-fr.png";
 
+// Change your imports to this:
 const LANGS: { code: Lang; label: string; flag: string }[] = [
-  { code: "ar", label: "العربية", flag: arFlag },
-  { code: "en", label: "English", flag: enFlag },
-  { code: "fr", label: "Français", flag: frFlag }
+  { code: "ar", label: "العربية", flag: "/flag-sa.png" },
+  { code: "en", label: "English", flag: "/flag-uk.png" },
+  { code: "fr", label: "Français", flag: "/flag-fr.png" }
 ];
 
 export function LangSwitcher({
