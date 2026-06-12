@@ -1,3 +1,4 @@
+import CopyableResponse from "./CopyableResponse";
 import { useEffect, useRef, useState } from "react";
 import { Send, House, Sparkles, Mic, Square, FileText, ArrowRight, RefreshCw } from "lucide-react";
 import ReactMarkdown from "react-markdown";
@@ -334,44 +335,17 @@ function MessageBubble({ msg, lang, onSuggest }: { msg: Msg; lang: Lang; onSugge
       <div className="flex items-end gap-3 max-w-[90%] w-full">
         <img src={mascotFace} alt="" className="h-9 w-9 rounded-full ring-2 ring-white object-cover shadow-md flex-shrink-0" />
         <Card className="flex-1 glass-panel border border-gray-200 rounded-lg rounded-bl-sm px-5 py-4 shadow-soft">
-          <div dir={lang === "ar" ? "rtl" : "ltr"} className="chat-prose prose prose-sm max-w-none text-foreground/90 leading-relaxed flex flex-col">
-            <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdComponents}>
-              {msg.text}
-            </ReactMarkdown>
-          </div>
-          {docs.length > 0 && (
-            <div className="mt-3 flex flex-wrap gap-2">
-              {docs.map((d) => (
-                <a
-                  key={d.url}
-                  href={d.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-lg bg-white border border-border hover:shadow-soft transition underline"
-                  style={{ color: "hsl(var(--etimad-dark-green))", borderColor: "hsl(var(--etimad-dark-green) / 0.3)" }}
-                >
-                  <FileText size={13} />
-                  {d.name}
-                </a>
-              ))}
-            </div>
-          )}
-          {msg.id !== "init" && (
-            <div className="mt-4 pt-3 border-t border-border/60 flex flex-wrap gap-2">
-              <Button size="sm" variant="default" onClick={() => onSuggest(nextActions[0])} className="gap-1.5">
-                <ArrowRight size={14} className={lang === "ar" ? "rotate-180" : ""} /> {nextActions[0]}
-              </Button>
-              <Button size="sm" variant="outline" onClick={() => onSuggest(nextActions[1])} className="gap-1.5">
-                <Sparkles size={14} /> {nextActions[1]}
-              </Button>
-            </div>
-          )}
-          {msg.retry && (
-            <button onClick={msg.retry} className="mt-3 text-xs font-semibold underline flex items-center gap-1" style={{ color: "hsl(var(--etimad-light-green))" }}>
-              <RefreshCw size={12} /> {lang === "ar" ? "إعادة المحاولة" : lang === "fr" ? "Réessayer" : "Retry"}
-            </button>
-          )}
-        </Card>
+  {/* Wrap the content in CopyableResponse */}
+  <CopyableResponse dir={lang === "ar" ? "rtl" : "ltr"}>
+    <div className="chat-prose prose prose-sm max-w-none text-foreground/90 leading-relaxed flex flex-col">
+      <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdComponents}>
+        {msg.text}
+      </ReactMarkdown>
+    </div>
+  </CopyableResponse>
+
+  {/* ... keep your existing documents, buttons, and retry logic below ... */}
+</Card>
       </div>
     </div>
   );
