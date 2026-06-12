@@ -1,8 +1,8 @@
 import type { Lang } from "@/lib/i18n";
 
-import saFlag from "@/assets/flag-sa.png";
-import ukFlag from "@/assets/flag-uk.png";
-import frFlag from "@/assets/flag-fr.png";
+import saFlag from "@/icons/flag-sa.png";
+import ukFlag from "@/icons/flag-uk.png";
+import frFlag from "@/icons/flag-fr.png";
 
 // Then update your LANGS array:
 const LANGS = [
