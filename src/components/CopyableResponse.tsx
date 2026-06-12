@@ -7,26 +7,17 @@ interface CopyableResponseProps {
   className?: string;
 }
 
-export default function CopyableResponse({
-  children,
-  dir = "auto",
-  className = "",
-}: CopyableResponseProps) {
+export default function CopyableResponse({ children, dir = "auto", className = "" }: CopyableResponseProps) {
   const contentRef = useRef<HTMLDivElement>(null);
 
   return (
     <div className={`relative group ${className}`}>
-      {/* Copy button — top-right, visible on hover */}
-      <div className="absolute top-2 inset-inline-end-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10">
+      {/* Absolute positioned button - now using inset-inline-end for RTL/LTR support */}
+      <div className="absolute top-0 inset-inline-end-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
         <CopyButton contentRef={contentRef} />
       </div>
 
-      {/* Content — dir="auto" auto-detects RTL/LTR per paragraph */}
-      <div
-        ref={contentRef}
-        dir={dir}
-        className="prose dark:prose-invert max-w-none"
-      >
+      <div ref={contentRef} dir={dir} className="max-w-none">
         {children}
       </div>
     </div>
