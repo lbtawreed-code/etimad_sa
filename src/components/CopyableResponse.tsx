@@ -11,11 +11,14 @@ export default function CopyableResponse({ children, dir = "auto", className = "
   const contentRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className={`relative group ${className}`}>
-      {/* Absolute positioned button - now using inset-inline-end for RTL/LTR support */}
-     <div className="absolute top-2 inset-inline-end-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-20">
-  <CopyButton contentRef={contentRef} />
-</div>
+    <div className={`relative ${className}`}>
+      {/* 1. Removed 'group' from here because it's now on the parent Card.
+        2. Added 'opacity-0 group-hover:opacity-100' to react to the parent's hover.
+      */}
+      <div className="absolute top-0 inset-inline-end-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50">
+        <CopyButton contentRef={contentRef} />
+      </div>
+
       <div ref={contentRef} dir={dir} className="max-w-none">
         {children}
       </div>
