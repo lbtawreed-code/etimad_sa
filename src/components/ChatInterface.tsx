@@ -334,8 +334,10 @@ function MessageBubble({ msg, lang, onSuggest }: { msg: Msg; lang: Lang; onSugge
     <div className={`flex ${align} fade-in`}>
       <div className="flex items-end gap-3 max-w-[90%] w-full">
         <img src={mascotFace} alt="" className="h-9 w-9 rounded-full ring-2 ring-white object-cover shadow-md flex-shrink-0" />
-        <Card className="flex-1 glass-panel border border-gray-200 rounded-lg rounded-bl-sm px-5 py-4 shadow-soft">
-  {/* Wrap the content in CopyableResponse */}
+       // Inside MessageBubble:
+<Card className="flex-1 glass-panel border border-gray-200 rounded-lg rounded-bl-sm px-5 py-4 shadow-soft group relative overflow-visible">
+  {/* Add 'group' and 'relative' to the Card class above */}
+  
   <CopyableResponse dir={lang === "ar" ? "rtl" : "ltr"}>
     <div className="chat-prose prose prose-sm max-w-none text-foreground/90 leading-relaxed flex flex-col">
       <ReactMarkdown remarkPlugins={[remarkGfm]} components={mdComponents}>
@@ -343,8 +345,8 @@ function MessageBubble({ msg, lang, onSuggest }: { msg: Msg; lang: Lang; onSugge
       </ReactMarkdown>
     </div>
   </CopyableResponse>
-
-  {/* ... keep your existing documents, buttons, and retry logic below ... */}
+  
+  {/* ... rest of your code ... */}
 </Card>
       </div>
     </div>
