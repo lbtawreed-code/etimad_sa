@@ -36,7 +36,7 @@ const App = () => {
   const installApp = async () => {
     if (!deferredPrompt) {
       alert(
-        'To install the app:\n\nChrome: menu ⋮ → Cast, save, and share → Install page\n\niPhone: Share → Add to Home Screen'
+        'To install the app:\n\nChrome: menu â‹® â†’ Cast, save, and share â†’ Install page\n\niPhone: Share â†’ Add to Home Screen'
       );
       return;
     }
@@ -57,7 +57,11 @@ const App = () => {
         {showInstall && (
           <button
             onClick={installApp}
+<<<<<<< Updated upstream
             className="fixed bottom-5 right-5 z-[9999] flex items-center gap-2 rounded-full gradient-primary px-5 py-3 text-sm font-bold text-primary-foreground shadow-glow active:scale-95 transition-all hover:opacity-90"
+=======
+            className="fixed bottom-5 right-5 z-[9999] flex items-center gap-2 rounded-full gradient-primary text-primary-foreground shadow-glow px-5 py-3 text-sm font-bold text-white shadow-lg active:scale-95"
+>>>>>>> Stashed changes
           >
             <Download size={18} />
             Download App
