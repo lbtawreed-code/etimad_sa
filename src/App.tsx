@@ -11,6 +11,7 @@ import NotFound from "./pages/NotFound.tsx";
 const queryClient = new QueryClient();
 
 const App = () => {
+  // --- YOUR PWA LOGIC START ---
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
   const [showInstall, setShowInstall] = useState(false);
 
@@ -20,33 +21,27 @@ const App = () => {
       (window.navigator as any).standalone === true;
 
     if (isStandalone) return;
-
     setShowInstall(true);
 
     const handler = (e: any) => {
       e.preventDefault();
       setDeferredPrompt(e);
     };
-
     window.addEventListener("beforeinstallprompt", handler);
-
     return () => window.removeEventListener("beforeinstallprompt", handler);
   }, []);
 
   const installApp = async () => {
     if (!deferredPrompt) {
-      alert(
-        'To install the app:\n\nChrome: menu ⋮ → Cast, save, and share → Install page\n\niPhone: Share → Add to Home Screen'
-      );
+      alert('To install the app:\n\nChrome: menu ⋮ → Cast, save, and share → Install page\n\niPhone: Share → Add to Home Screen');
       return;
     }
-
     deferredPrompt.prompt();
     await deferredPrompt.userChoice;
-
     setDeferredPrompt(null);
     setShowInstall(false);
   };
+  // --- YOUR PWA LOGIC END ---
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -54,6 +49,7 @@ const App = () => {
         <Toaster />
         <Sonner />
 
+        {/* --- PWA BUTTON --- */}
         {showInstall && (
           <button
             onClick={installApp}
