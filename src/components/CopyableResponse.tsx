@@ -17,7 +17,7 @@ export default function CopyableResponse({
   return (
     <div className={`relative group ${className}`}>
       {/* Copy button — top-right, visible on hover */}
-      <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10">
+      <div className="absolute top-2 inset-inline-end-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10">
         <CopyButton contentRef={contentRef} />
       </div>
 
