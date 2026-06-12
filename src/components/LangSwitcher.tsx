@@ -1,10 +1,14 @@
 import type { Lang } from "@/lib/i18n";
 
-// The flag paths are relative to the 'public' folder
+import saFlag from "@/assets/flag-sa.png";
+import ukFlag from "@/assets/flag-uk.png";
+import frFlag from "@/assets/flag-fr.png";
+
+// Then update your LANGS array:
 const LANGS = [
-  { code: "ar", label: "العربية", flag: "/flag-sa.png" },
-  { code: "en", label: "English", flag: "/flag-uk.png" },
-  { code: "fr", label: "Français", flag: "/flag-fr.png" }
+  { code: "ar", label: "العربية", flag: saFlag },
+  { code: "en", label: "English", flag: ukFlag },
+  { code: "fr", label: "Français", flag: frFlag }
 ];
 
 export function LangSwitcher({
